@@ -22,7 +22,7 @@ function App() {
 
   const buildPeopleCard = (obj) => {
     return (
-      <div className="character-card"  key={obj.id}>
+      <div className="character-card" key={obj.id}>
         <h3 className="character-name">{obj.name}</h3>
         
         <Character combinedData={obj} />
@@ -45,7 +45,7 @@ const combinedData = people.map((character) => {
   return (
     <div>
       <h2>Star Wars Characters</h2>
-      <p className="cards">See the README of the project for instructions on completing this challenge</p>
+      <p>See the README of the project for instructions on completing this challenge</p>
       {people.map((person) => buildPeopleCard(person))}
     </div>
   );
