@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 
 function Character({ combinedData }) {
-  const [showHomeworld, setShowHomeworld] = useState(false);
+  const [showHomeworld, setShowHomeworld] = useState(true);
 
-  const toggleHomeworld = () => {
-    setShowHomeworld((prevState) => !prevState);
-  };
   const handleClick = () => {
     setShowHomeworld((prevState) => !prevState);
   };
 
   return (
-    <div>
+    <div onClick={handleClick} style={{ cursor: 'pointer' }}>
       
-      <span className='character-planet'>{combinedData.homeworld}</span>
+      <p>Planet:{showHomeworld && (
+        <span className='character-planet'>{combinedData.homeworld}</span>
+      )}</p>
       
     </div>
   );

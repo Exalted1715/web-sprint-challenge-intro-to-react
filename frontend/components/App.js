@@ -22,9 +22,9 @@ function App() {
 
   const buildPeopleCard = (obj) => {
     return (
-      <div className="character-card" key={obj.id}>
+      <div className="character-card"  key={obj.id}>
         <h3 className="character-name">{obj.name}</h3>
-        <p>Planet:</p>
+        
         <Character combinedData={obj} />
       </div>
     );
