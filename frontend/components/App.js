@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import Character from './Character'
 
@@ -6,8 +6,23 @@ const urlPlanets = 'http://localhost:9009/api/planets'
 const urlPeople = 'http://localhost:9009/api/people'
 
 function App() {
-  // ❗ Create state to hold the data from the API
+  const [planets, setPlanets] = useState([]);
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    axios.get(urlPlanets).then((response) => {
+      setPlanets(response.data);
+    });
+
+    axios.get(urlPeople).then((response) => {
+      setPeople(response.data);
+    });
+  }, []);
+
+  console.log(planets);
+  console.log(people);
   // ❗ Create effects to fetch the data and put it in state
+  
   return (
     <div>
       <h2>Star Wars Characters</h2>
