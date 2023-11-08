@@ -3,22 +3,18 @@ import React, { useState } from 'react';
 function Character({ combinedData }) {
   const [showHomeworld, setShowHomeworld] = useState(false);
 
+  const toggleHomeworld = () => {
+    setShowHomeworld((prevState) => !prevState);
+  };
   const handleClick = () => {
     setShowHomeworld((prevState) => !prevState);
   };
 
   return (
     <div>
-      <h3 className='character-name' onClick={handleClick}>
-        {combinedData.name}
-      </h3>
-      {showHomeworld && (
-        <div>
-          <span className='character-planet'>
-            Planet: {combinedData.homeworld}
-          </span>
-        </div>
-      )}
+      
+      <span className='character-planet'>{combinedData.homeworld}</span>
+      
     </div>
   );
 }
