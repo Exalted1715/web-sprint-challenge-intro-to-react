@@ -24,13 +24,23 @@ function App() {
     return (
       <div className="character-card" key={obj.id}>
         <h3 className="character-name">{obj.name}</h3>
-        <h4 className="closed">Some Toggle Text</h4>
+        <p>Planet:</p>
+        <Character combinedData={obj} />
       </div>
     );
   };
 
   console.log(planets);
   console.log(people);
+
+//combining the data to be able to grab the homeworld names
+const combinedData = people.map((character) => {
+  const homeworld = planets.find((planet) => planet.id === character.homeworld.id);
+  return {
+    ...character,
+    homeworld: homeworld ? homeworld.name : "Unknown",
+  };
+});
 
   return (
     <div>
